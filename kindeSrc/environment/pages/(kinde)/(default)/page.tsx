@@ -7,15 +7,15 @@ import { Layout } from "../../components/Layout";
 
 const PageLayout = async ({ request, context }) => {
   return (
-    <Layout request={request} context={context}>
-      <main>
-        <div class="c-widget">
-          <h2>{context.widget.content.heading}</h2>
-          <p>{context.widget.content.description} </p>
-          <div>{getKindeWidget()}</div>
-        </div>
-      </main>
-    </Layout>
+    // <Layout request={request} context={context}>
+    <main>
+      <div class="c-widget">
+        <h2>{context.widget.content.heading}</h2>
+        <p>{context.widget.content.description} </p>
+        <div>{getKindeWidget()}</div>
+      </div>
+    </main>
+    // </Layout>
   );
 };
 
