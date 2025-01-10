@@ -5,7 +5,7 @@ import {
   getKindeSignUpUrl,
 } from "@kinde/infrastructure";
 
-export const EntryPageHeader = ({ activeTab }) => {
+export const NavTabs = ({ activeTab }) => {
   <style nonce={getKindeNonce()}>
     {`
      .c-nav-tabs {
