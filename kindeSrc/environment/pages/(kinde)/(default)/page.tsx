@@ -4,7 +4,6 @@ import React from "react";
 import { renderToString } from "react-dom/server.browser";
 import { getKindeWidget } from "@kinde/infrastructure";
 import { Layout } from "../../components/Layout";
-import { LayoutTwo } from "../../components/LayoutTwo";
 
 const PageLayout = async ({ request, context }) => {
   return (
