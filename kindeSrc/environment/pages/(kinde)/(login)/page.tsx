@@ -82,40 +82,54 @@ const Layout = async ({ request, context }) => {
                 margin: 0px auto;
             }
 
-            .c-tabset {
+         .c-nav-tabs {
+  align-items: center;
   background-color: #010101;
   display: flex;
-  z-index: 2;
-}
-  .c-tabset__item {
-  align-items: flex-end;
-  display: flex;
-  flex: 1 0 auto;
-  justify-content: center;
+  opacity: 1;
+  text-transform: uppercase;
+  transition: opacity 250ms;
 }
 
-.c-tabset__tab {
-  align-items: center;
-  border-bottom: 2.5rem solid transparent;
-  color: #c6c6c6;
+.c-nav-tabs--spacing-default {
+  margin-bottom: 1rem;
+}
+
+
+
+.h-is-scrolling-down .c-nav-tabs {
+  opacity: 0;
+  transition: opacity 250ms;
+}
+
+
+.c-nav-tabs__item {
   display: flex;
-  flex-direction: column;
-  font-size: 0.75rem;
-  padding-bottom: 0.5rem;
-  padding-top: 0.5rem;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition: all 200ms ease-in-out;
   width: 100%;
 }
-  .c-tabset__tab.is-active {
-  color: #ff1493;
+
+.c-nav-tabs__link {
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  color: #c6c6c6;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
 }
-  .c-tabset__tab.is-active:focus,
-.c-tabset__tab:active {
+
+.c-nav-tabs__link.is-active {
+  border-bottom-color: #ff1493;
+  color: #fff;
+}
+
+.c-nav-tabs__link.is-active:focus,
+.c-nav-tabs__link:active {
   outline: none;
 }
+
           `}
         </style>
       </head>
