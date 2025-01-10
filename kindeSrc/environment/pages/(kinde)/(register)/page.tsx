@@ -13,7 +13,7 @@ const PageLayout = async ({ request, context }) => {
     <Layout request={request} context={context}>
       <main>
         <div class="c-widget">
-          <EntryPageHeader activeTab="sign_up" />
+          <EntryPageHeader logoAltText={context.widget.content.logo_alt} />
           <NavTabs activeTab="sign_up" />
           <div>{getKindeWidget()}</div>
         </div>

@@ -10,7 +10,7 @@ export const EntryPageHeader = ({ logoAltText }) => {
         .c-strapline {
             color: #c6c6c6;
             font-size: 1.2rem;
-            margin: 1rem auto 0;
+            margin: 1rem auto;
             margin-top: 1rem;
             max-width: 22rem;
             padding: 0 1rem;

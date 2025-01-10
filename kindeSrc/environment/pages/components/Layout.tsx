@@ -46,7 +46,6 @@ export const Layout = ({ request, context, children }) => {
                 --kinde-control-select-text-border-color: #666;
                 --kinde-base-focus-outline-color: #ff1493;
 
-                --kinde-button-block-size: 3.75rem;
                 --kinde-button-font-size: 1.2rem;
                 --kinde-button-letter-spacing: 0.5px;
 
@@ -59,14 +58,18 @@ export const Layout = ({ request, context, children }) => {
             [data-kinde-button-variant="primary"]:hover {
                 text-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
                 border-color: #ff1493;
+                block-size: 3.75rem;
             }
-
+        .c-header {
+        width: 10rem;
+  margin: 3rem auto 1.5rem;
+        }
             .c-container {
               padding: 1.5rem;
             }
 
             .c-widget {
-                max-width: 400px;
+                max-width: 25rem;
                 width: 100%;
                 margin: 0px auto;
             }
