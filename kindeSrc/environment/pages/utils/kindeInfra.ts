@@ -26,7 +26,7 @@ export const getLogoUrl = (orgCode) => {
   return getAssetUrl("logo", orgCode);
 };
 
-export const getDarkModeLogoUrl = ({ isDarkVariant, orgCode }) => {
+export const getDarkModeLogoUrl = (orgCode) => {
   return getAssetUrl("logo_dark", orgCode);
 };
 
