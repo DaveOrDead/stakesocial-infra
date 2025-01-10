@@ -8,6 +8,8 @@ import {
   getKindeNonce,
   getKindeWidget,
   getKindeCSRF,
+  getKindeSignInUrl,
+  getKindeSignUpUrl,
 } from "@kinde/infrastructure";
 import {
   getLogoUrl,

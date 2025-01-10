@@ -8,6 +8,8 @@ import {
   getKindeNonce,
   getKindeWidget,
   getKindeCSRF,
+  getKindeSignInUrl,
+  getKindeSignUpUrl,
 } from "@kinde/infrastructure";
 import {
   getLogoUrl,
@@ -129,25 +131,69 @@ const Layout = async ({ request, context }) => {
 .c-nav-tabs__link:active {
   outline: none;
 }
+  .c-nav-tabs--spacing-4x-large {
+  margin-bottom: 1.5rem;
+}
+
+@media only screen and (min-width: 40em) {
+  .c-nav-tabs--spacing-4x-large {
+    margin-bottom: 3rem;
+  }
+}
+
+.c-strapline {
+  color: #c6c6c6;
+  font-size: 1.2rem;
+  margin: 1rem auto 0;
+  margin-top: 1rem;
+  max-width: 22rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+@media only screen and (min-width: 40em) {
+  .c-strapline {
+    font-size: 1.3rem;
+  }
+}
+
+.c-strapline__highlight {
+  color: #ff1493;
+  font-weight: 700;
+}
+
 
           `}
         </style>
       </head>
       <body>
         <div id="root" data-roast-root="/admin" class="c-container">
-          <header class="c-header">
-            <img src={getLogoUrl()} alt={context.widget.content.logo_alt} />
+          <header>
+            <img
+              src={getDarkModeLogoUrl()}
+              alt={context.widget.content.logo_alt}
+            />
+            <p class="c-strapline">
+              The <span class="c-strapline__highlight">free</span>,{" "}
+              <span class="c-strapline__highlight">fun</span> and{" "}
+              <span class="c-strapline__highlight">friendly</span>{" "}
+              <span class="c-strapline__highlight">football prediction</span>{" "}
+              game ⚽
+            </p>
           </header>
           <main>
             <div class="c-widget">
               <ul class="c-nav-tabs c-nav-tabs--spacing-4x-large">
                 <li class="c-nav-tabs__item" role="presentation">
-                  <a class="c-nav-tabs__link is-active" href="">
+                  <a
+                    class="c-nav-tabs__link is-active"
+                    href={getKindeSignInUrl()}
+                  >
                     <span class="c-nav-tabs__label">Login</span>
                   </a>
                 </li>
                 <li class="c-nav-tabs__item" role="presentation">
-                  <a class="c-nav-tabs__link" href="">
+                  <a class="c-nav-tabs__link" href={getKindeSignUpUrl()}>
                     <span class="c-nav-tabs__label">Sign Up</span>
                   </a>
                 </li>
