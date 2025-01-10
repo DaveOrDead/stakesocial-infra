@@ -2,13 +2,19 @@
 
 import React from "react";
 import { renderToString } from "react-dom/server.browser";
-import { getKindeWidget } from "@kinde/infrastructure";
+import { getKindeWidget, getKindeNonce } from "@kinde/infrastructure";
 import { Layout } from "../../components/Layout";
 import { getDarkModeLogoUrl } from "../../utils/kindeInfra";
 
 const PageLayout = async ({ request, context }) => {
   return (
     <Layout request={request} context={context}>
+      <style nonce={getKindeNonce()}>
+        {`
+            .c-strapline {
+  margin-bottom: 1.5rem;
+}`}
+      </style>
       <main>
         <div class="c-widget">
           <header>
