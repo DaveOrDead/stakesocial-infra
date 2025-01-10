@@ -161,6 +161,9 @@ const Layout = async ({ request, context }) => {
   color: #ff1493;
   font-weight: 700;
 }
+  .c-nav-tabs__link * {
+            pointer-events: none;
+}
 
 
           `}
