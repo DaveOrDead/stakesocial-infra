@@ -75,7 +75,7 @@ export const Layout = async ({ request, context, children }) => {
       </head>
       <body>
         <div id="root" data-roast-root="/admin" class="c-container">
-          {children}
+          Hello world
         </div>
       </body>
     </html>
