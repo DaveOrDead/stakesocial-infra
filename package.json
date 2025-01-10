@@ -1,7 +1,7 @@
 {
-  "name": "kinde-custom-ui",
+  "name": "stakesocial-infra",
   "version": "1.0.0",
-  "description": "Template repo for custom UI on Kinde",
+  "description": "Stake custom UI on Kinde",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
