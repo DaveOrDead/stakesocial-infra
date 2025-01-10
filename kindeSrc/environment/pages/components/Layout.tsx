@@ -10,7 +10,7 @@ import {
   setKindeDesignerCustomProperties,
 } from "../utils/kindeInfra";
 
-export const Layout = async ({ request, context, children }) => {
+export const Layout = ({ request, context, children }) => {
   return (
     <html
       lang={request.locale.lang}
