@@ -3,18 +3,12 @@ import {
   getKindeRequiredCSS,
   getKindeRequiredJS,
   getKindeNonce,
-  getKindeWidget,
   getKindeCSRF,
-  getKindeSignInUrl,
-  getKindeSignUpUrl,
 } from "@kinde/infrastructure";
 import {
-  getLogoUrl,
   getSVGFavicon,
   setKindeDesignerCustomProperties,
-  getDarkModeLogoUrl,
 } from "../utils/kindeInfra";
-import { EntryPageHeader } from "../../components/EntryPageHeader";
 
 export const Layout = async ({ request, context, children }) => {
   return (
@@ -44,10 +38,7 @@ export const Layout = async ({ request, context, children }) => {
             primaryButtonColor: "#010101",
             inputBorderRadius: "0",
           })}}
-          `}
-        </style>
-        <style nonce={getKindeNonce()}>
-          {`
+
             :root {
                 --kinde-base-color: rgb(12, 0, 32);
                 --kinde-base-font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Arial, Segoe UI, Roboto, sans-serif;
@@ -84,7 +75,7 @@ export const Layout = async ({ request, context, children }) => {
       </head>
       <body>
         <div id="root" data-roast-root="/admin" class="c-container">
-          blah
+          {children}
         </div>
       </body>
     </html>

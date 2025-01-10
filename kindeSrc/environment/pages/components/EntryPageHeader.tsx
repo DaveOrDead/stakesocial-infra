@@ -3,8 +3,10 @@ import { getKindeNonce } from "@kinde/infrastructure";
 import { getDarkModeLogoUrl } from "../utils/kindeInfra";
 
 export const EntryPageHeader = ({ logoAltText }) => {
-  <style nonce={getKindeNonce()}>
-    {`
+  return (
+    <>
+      <style nonce={getKindeNonce()}>
+        {`
         .c-strapline {
             color: #c6c6c6;
             font-size: 1.2rem;
@@ -26,17 +28,21 @@ export const EntryPageHeader = ({ logoAltText }) => {
             font-weight: 700;
         }
     `}
-  </style>;
-  return (
-    <header>
-      <img className="c-header" src={getDarkModeLogoUrl()} alt={logoAltText} />
-      <p class="c-strapline">
-        The <span className="c-strapline__highlight">free</span>,{" "}
-        <span className="c-strapline__highlight">fun</span> and{" "}
-        <span className="c-strapline__highlight">friendly</span>{" "}
-        <span className="c-strapline__highlight">football prediction</span> game
-        ⚽
-      </p>
-    </header>
+      </style>
+      <header>
+        <img
+          className="c-header"
+          src={getDarkModeLogoUrl()}
+          alt={logoAltText}
+        />
+        <p class="c-strapline">
+          The <span className="c-strapline__highlight">free</span>,{" "}
+          <span className="c-strapline__highlight">fun</span> and{" "}
+          <span className="c-strapline__highlight">friendly</span>{" "}
+          <span className="c-strapline__highlight">football prediction</span>{" "}
+          game ⚽
+        </p>
+      </header>
+    </>
   );
 };

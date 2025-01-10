@@ -6,8 +6,10 @@ import {
 } from "@kinde/infrastructure";
 
 export const NavTabs = ({ activeTab }) => {
-  <style nonce={getKindeNonce()}>
-    {`
+  return (
+    <>
+      <style nonce={getKindeNonce()}>
+        {`
      .c-nav-tabs {
         align-items: center;
         background-color: #010101;
@@ -57,25 +59,25 @@ export const NavTabs = ({ activeTab }) => {
                     pointer-events: none;
         }
     `}
-  </style>;
-  return (
-    <ul class="c-nav-tabs c-nav-tabs--spacing-4x-large">
-      <li class="c-nav-tabs__item" role="presentation">
-        <a
-          class={`c-nav-tabs__link ${activeTab === "login" ? "is-active" : ""}`}
-          href={getKindeSignInUrl()}
-        >
-          <span class="c-nav-tabs__label">Login</span>
-        </a>
-      </li>
-      <li class="c-nav-tabs__item" role="presentation">
-        <a
-          class={`c-nav-tabs__link ${activeTab === "sign_up" ? "is-active" : ""}`}
-          href={getKindeSignUpUrl()}
-        >
-          <span class="c-nav-tabs__label">Sign Up</span>
-        </a>
-      </li>
-    </ul>
+      </style>
+      <ul class="c-nav-tabs c-nav-tabs--spacing-4x-large">
+        <li class="c-nav-tabs__item" role="presentation">
+          <a
+            class={`c-nav-tabs__link ${activeTab === "login" ? "is-active" : ""}`}
+            href={getKindeSignInUrl()}
+          >
+            <span class="c-nav-tabs__label">Login</span>
+          </a>
+        </li>
+        <li class="c-nav-tabs__item" role="presentation">
+          <a
+            class={`c-nav-tabs__link ${activeTab === "sign_up" ? "is-active" : ""}`}
+            href={getKindeSignUpUrl()}
+          >
+            <span class="c-nav-tabs__label">Sign Up</span>
+          </a>
+        </li>
+      </ul>
+    </>
   );
 };
