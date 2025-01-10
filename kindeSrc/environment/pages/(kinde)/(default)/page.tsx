@@ -2,8 +2,9 @@
 
 import React from "react";
 import { renderToString } from "react-dom/server.browser";
-import { getKindeWidget, getDarkModeLogoUrl } from "@kinde/infrastructure";
+import { getKindeWidget } from "@kinde/infrastructure";
 import { Layout } from "../../components/Layout";
+import { getDarkModeLogoUrl } from "../../utils/kindeInfra";
 
 const PageLayout = async ({ request, context }) => {
   return (
