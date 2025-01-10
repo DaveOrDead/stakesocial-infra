@@ -13,7 +13,7 @@ import {
   getSVGFavicon,
   setKindeDesignerCustomProperties,
   getDarkModeLogoUrl,
-} from "../../utils/kindeInfra";
+} from "../utils/kindeInfra";
 import { EntryPageHeader } from "../../components/EntryPageHeader";
 
 export const Layout = async ({ request, context, children }) => {

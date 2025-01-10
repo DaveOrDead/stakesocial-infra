@@ -1,6 +1,6 @@
 import React from "react";
 import { getKindeNonce } from "@kinde/infrastructure";
-import { getDarkModeLogoUrl } from "../../utils/kindeInfra";
+import { getDarkModeLogoUrl } from "../utils/kindeInfra";
 
 export const EntryPageHeader = ({ logoAltText }) => {
   <style nonce={getKindeNonce()}>
