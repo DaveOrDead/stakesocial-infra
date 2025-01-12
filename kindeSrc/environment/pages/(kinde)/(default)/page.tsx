@@ -10,10 +10,11 @@ const PageLayout = async ({ request, context }) => {
   return (
     <Layout request={request} context={context}>
       <style nonce={getKindeNonce()}>
-        {`
-            .c-strapline {
-  margin-bottom: 1.5rem;
-}`}
+        {css`
+          .c-strapline {
+            margin-bottom: 1.5rem;
+          }
+        `}
       </style>
       <main>
         <div class="c-widget">

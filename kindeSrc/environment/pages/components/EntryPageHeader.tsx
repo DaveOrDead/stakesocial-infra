@@ -6,8 +6,8 @@ export const EntryPageHeader = ({ logoAltText }) => {
   return (
     <>
       <style nonce={getKindeNonce()}>
-        {`
-        .c-strapline {
+        {css`
+          .c-strapline {
             color: #c6c6c6;
             font-size: 1.2rem;
             margin: 1rem auto;
@@ -15,19 +15,19 @@ export const EntryPageHeader = ({ logoAltText }) => {
             max-width: 22rem;
             padding: 0 1rem;
             text-align: center;
-        }
+          }
 
-        @media only screen and (min-width: 40em) {
+          @media only screen and (min-width: 40em) {
             .c-strapline {
-                font-size: 1.3rem;
+              font-size: 1.3rem;
             }
-        }
+          }
 
-        .c-strapline__highlight {
+          .c-strapline__highlight {
             color: #ff1493;
             font-weight: 700;
-        }
-    `}
+          }
+        `}
       </style>
       <header>
         <img

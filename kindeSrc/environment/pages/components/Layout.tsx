@@ -29,51 +29,53 @@ export const Layout = ({ request, context, children }) => {
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
         <style nonce={getKindeNonce()}>
-          {`:root {
-          ${setKindeDesignerCustomProperties({
-            baseBackgroundColor: "#010101",
-            baseLinkColor: "#ff1493",
-            buttonBorderRadius: "2em",
-            primaryButtonBackgroundColor: "#ff1493",
-            primaryButtonColor: "#010101",
-            inputBorderRadius: "0",
-          })}}
+          {css`
+            :root {
+              ${setKindeDesignerCustomProperties({
+                baseBackgroundColor: "#010101",
+                baseLinkColor: "#ff1493",
+                buttonBorderRadius: "2em",
+                primaryButtonBackgroundColor: "#ff1493",
+                primaryButtonColor: "#010101",
+                inputBorderRadius: "0",
+              })}
+            }
 
             :root {
-                --kinde-base-color: rgb(12, 0, 32);
-                --kinde-base-font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Arial, Segoe UI, Roboto, sans-serif;
+              --kinde-base-color: rgb(12, 0, 32);
+              --kinde-base-font-family: -apple-system, system-ui,
+                BlinkMacSystemFont, Helvetica, Arial, Segoe UI, Roboto,
+                sans-serif;
 
-                --kinde-control-select-text-border-color: #666;
-                --kinde-base-focus-outline-color: #ff1493;
+              --kinde-control-select-text-border-color: #666;
+              --kinde-base-focus-outline-color: #ff1493;
 
-                --kinde-button-letter-spacing: 0.5px;
+              --kinde-button-letter-spacing: 0.5px;
 
-
-                --kinde-button-primary-background-color-hover: transparent;
-                --kinde-button-primary-color-hover: #ff1493;
-
+              --kinde-button-primary-background-color-hover: transparent;
+              --kinde-button-primary-color-hover: #ff1493;
             }
-                [data-kinde-button-variant="primary"] {
-                block-size: 3.75rem;
-                }
+            [data-kinde-button-variant="primary"] {
+              block-size: 3.75rem;
+            }
 
             [data-kinde-button-variant="primary"]:hover {
-                text-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
-                border-color: #ff1493;
-                font-size:  1.2rem;
+              text-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+              border-color: #ff1493;
+              font-size: 1.2rem;
             }
-        .c-header {
-        width: 10rem;
-  margin: 3rem auto 1.5rem;
-        }
+            .c-header {
+              width: 10rem;
+              margin: 3rem auto 1.5rem;
+            }
             .c-container {
               padding: 1.5rem;
             }
 
             .c-widget {
-                max-width: 25rem;
-                width: 100%;
-                margin: 0px auto;
+              max-width: 25rem;
+              width: 100%;
+              margin: 0px auto;
             }
           `}
         </style>
@@ -81,6 +83,26 @@ export const Layout = ({ request, context, children }) => {
       <body>
         <div id="root" data-roast-root="/admin" class="c-container">
           {children}
+          <footer class="c-footer">
+            <div class="l-container l-container--center-content l-container--centered l-container--fixed-width l-container--full-width-palm">
+              <div class="h-spacing">
+                <nav class="c-footer-nav">
+                  <a
+                    href="https://web.archive.org/web/20220401065018/https://stakesocial.com"
+                    rel="noopener noreferrer"
+                  >
+                    About us
+                  </a>
+                  <a href="mailto:support@stakesocial.com?subject=Hi!">
+                    Say hello!
+                  </a>
+                </nav>
+              </div>
+              <div class="c-copy-text c-copy-text--is-secondary c-copy-text--is-small c-copy-text--is-center">
+                <small>Stake Social ©2025</small>
+              </div>
+            </div>
+          </footer>
         </div>
       </body>
     </html>
