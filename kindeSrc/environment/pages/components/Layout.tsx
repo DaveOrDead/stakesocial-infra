@@ -4,11 +4,9 @@ import {
   getKindeRequiredJS,
   getKindeNonce,
   getKindeCSRF,
-} from "@kinde/infrastructure";
-import {
   getSVGFavicon,
   setKindeDesignerCustomProperties,
-} from "../utils/kindeInfra";
+} from "@kinde/infrastructure";
 
 export const Layout = ({ request, context, children }) => {
   return (

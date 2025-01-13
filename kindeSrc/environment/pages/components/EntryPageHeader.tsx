@@ -1,6 +1,5 @@
 import React from "react";
-import { getKindeNonce } from "@kinde/infrastructure";
-import { getDarkModeLogoUrl } from "../utils/kindeInfra";
+import { getKindeNonce, getDarkModeLogoUrl } from "@kinde/infrastructure";
 
 export const EntryPageHeader = ({ logoAltText }) => {
   return (
