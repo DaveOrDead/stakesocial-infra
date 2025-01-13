@@ -9,7 +9,7 @@ export const NavTabs = ({ activeTab }) => {
   return (
     <>
       <style nonce={getKindeNonce()}>
-        {css`
+        {`
           .c-nav-tabs {
             align-items: center;
             background-color: #010101;

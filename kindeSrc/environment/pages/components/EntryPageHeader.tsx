@@ -5,7 +5,7 @@ export const EntryPageHeader = ({ logoAltText }) => {
   return (
     <>
       <style nonce={getKindeNonce()}>
-        {css`
+        {`
           .c-strapline {
             color: #c6c6c6;
             font-size: 1.2rem;

@@ -13,7 +13,7 @@ const PageLayout = async ({ request, context }) => {
   return (
     <Layout request={request} context={context}>
       <style nonce={getKindeNonce()}>
-        {css`
+        {`
           .c-strapline {
             margin-bottom: 1.5rem;
           }

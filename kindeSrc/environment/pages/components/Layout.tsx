@@ -27,7 +27,7 @@ export const Layout = ({ request, context, children }) => {
         {getKindeRequiredCSS()}
         {getKindeRequiredJS()}
         <style nonce={getKindeNonce()}>
-          {css`
+          {`
             :root {
               ${setKindeDesignerCustomProperties({
                 baseBackgroundColor: "#010101",
