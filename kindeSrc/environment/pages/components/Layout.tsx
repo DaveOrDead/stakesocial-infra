@@ -21,7 +21,7 @@ export const Layout = ({ request, context, children }) => {
         <meta name="robots" content="noindex" />
         <meta name="csrf-token" content={getKindeCSRF()} />
         <meta name="color-scheme" content="dark" />
-        <title>{context.widget.content.page_title}</title>
+        <title>{context.widget.content.pageTitle}</title>
 
         <link rel="icon" href={getSVGFavicon()} type="image/svg+xml" />
         {getKindeRequiredCSS()}
