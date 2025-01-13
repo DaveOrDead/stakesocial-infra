@@ -60,21 +60,21 @@ export const NavTabs = ({ activeTab }) => {
           }
         `}
       </style>
-      <ul class="c-nav-tabs c-nav-tabs--spacing-4x-large">
-        <li class="c-nav-tabs__item" role="presentation">
+      <ul className="c-nav-tabs c-nav-tabs--spacing-4x-large">
+        <li className="c-nav-tabs__item" role="presentation">
           <a
-            class={`c-nav-tabs__link ${activeTab === "login" ? "is-active" : ""}`}
+            className={`c-nav-tabs__link ${activeTab === "login" ? "is-active" : ""}`}
             href={getKindeSignInUrl()}
           >
-            <span class="c-nav-tabs__label">Login</span>
+            <span className="c-nav-tabs__label">Login</span>
           </a>
         </li>
-        <li class="c-nav-tabs__item" role="presentation">
+        <li className="c-nav-tabs__item" role="presentation">
           <a
-            class={`c-nav-tabs__link ${activeTab === "sign_up" ? "is-active" : ""}`}
+            className={`c-nav-tabs__link ${activeTab === "sign_up" ? "is-active" : ""}`}
             href={getKindeSignUpUrl()}
           >
-            <span class="c-nav-tabs__label">Sign Up</span>
+            <span className="c-nav-tabs__label">Sign Up</span>
           </a>
         </li>
       </ul>

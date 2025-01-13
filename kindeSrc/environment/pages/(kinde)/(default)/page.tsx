@@ -20,7 +20,7 @@ const PageLayout = async ({ request, context }) => {
         `}
       </style>
       <main>
-        <div class="c-widget">
+        <div className="c-widget">
           <header>
             <img
               className="c-header"
@@ -29,7 +29,7 @@ const PageLayout = async ({ request, context }) => {
             />
           </header>
           <h2>{context.widget.content.heading}</h2>
-          <p class="c-strapline">{context.widget.content.description} </p>
+          <p className="c-strapline">{context.widget.content.description} </p>
           <div>{getKindeWidget()}</div>
         </div>
       </main>

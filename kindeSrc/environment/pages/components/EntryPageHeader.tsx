@@ -34,7 +34,7 @@ export const EntryPageHeader = ({ logoAltText }) => {
           src={getDarkModeLogoUrl()}
           alt={logoAltText}
         />
-        <p class="c-strapline">
+        <p className="c-strapline">
           The <span className="c-strapline__highlight">free</span>,{" "}
           <span className="c-strapline__highlight">fun</span> and{" "}
           <span className="c-strapline__highlight">friendly</span>{" "}

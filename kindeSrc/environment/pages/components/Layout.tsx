@@ -80,12 +80,12 @@ export const Layout = ({ request, context, children }) => {
         </style>
       </head>
       <body>
-        <div id="root" data-roast-root="/admin" class="c-container">
+        <div id="root" data-roast-root="/admin" className="c-container">
           {children}
-          <footer class="c-footer">
-            <div class="l-container l-container--center-content l-container--centered l-container--fixed-width l-container--full-width-palm">
-              <div class="h-spacing">
-                <nav class="c-footer-nav">
+          <footer className="c-footer">
+            <div className="l-container l-container--center-content l-container--centered l-container--fixed-width l-container--full-width-palm">
+              <div className="h-spacing">
+                <nav className="c-footer-nav">
                   <a
                     href="https://web.archive.org/web/20220401065018/https://stakesocial.com"
                     rel="noopener noreferrer"
@@ -97,7 +97,7 @@ export const Layout = ({ request, context, children }) => {
                   </a>
                 </nav>
               </div>
-              <div class="c-copy-text c-copy-text--is-secondary c-copy-text--is-small c-copy-text--is-center">
+              <div className="c-copy-text c-copy-text--is-secondary c-copy-text--is-small c-copy-text--is-center">
                 <small>Stake Social ©2025</small>
               </div>
             </div>
