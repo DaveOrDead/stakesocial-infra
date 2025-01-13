@@ -76,6 +76,22 @@ export const Layout = ({ request, context, children }) => {
               width: 100%;
               margin: 0px auto;
             }
+
+            .l-container {
+                display: grid;
+                justify-content: center;
+                padding: 2rem;
+                text-align: center;
+            }
+
+            .c-footer-nav {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .c-footer-nav a {
+              color: #f1f1f1;
+            }
           `}
         </style>
       </head>
@@ -83,23 +99,19 @@ export const Layout = ({ request, context, children }) => {
         <div id="root" data-roast-root="/admin" className="c-container">
           {children}
           <footer className="c-footer">
-            <div className="l-container l-container--center-content l-container--centered l-container--fixed-width l-container--full-width-palm">
-              <div className="h-spacing">
-                <nav className="c-footer-nav">
-                  <a
-                    href="https://web.archive.org/web/20220401065018/https://stakesocial.com"
-                    rel="noopener noreferrer"
-                  >
-                    About us
-                  </a>
-                  <a href="mailto:support@stakesocial.com?subject=Hi!">
-                    Say hello!
-                  </a>
-                </nav>
-              </div>
-              <div className="c-copy-text c-copy-text--is-secondary c-copy-text--is-small c-copy-text--is-center">
-                <small>Stake Social ©2025</small>
-              </div>
+            <div className="l-container">
+              <nav className="c-footer-nav">
+                <a
+                  href="https://web.archive.org/web/20220401065018/https://stakesocial.com"
+                  rel="noopener noreferrer"
+                >
+                  About us
+                </a>
+                <a href="mailto:support@stakesocial.com?subject=Hi!">
+                  Say hello!
+                </a>
+              </nav>
+              <small>Stake Social ©2025</small>
             </div>
           </footer>
         </div>
