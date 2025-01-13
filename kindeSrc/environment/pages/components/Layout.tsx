@@ -36,6 +36,7 @@ export const Layout = ({ request, context, children }) => {
                 primaryButtonBackgroundColor: "#ff1493",
                 primaryButtonColor: "#010101",
                 inputBorderRadius: "0",
+                cardBorderRadius: "0",
               })}
             }
 
