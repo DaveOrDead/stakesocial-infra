@@ -32,7 +32,7 @@ export const Layout = ({ request, context, children }) => {
               ${setKindeDesignerCustomProperties({
                 baseBackgroundColor: "#010101",
                 baseLinkColor: "#ff1493",
-                buttonBorderRadius: "2em",
+                buttonBorderRadius: "2.5rem",
                 primaryButtonBackgroundColor: "#ff1493",
                 primaryButtonColor: "#010101",
                 inputBorderRadius: "0px",
