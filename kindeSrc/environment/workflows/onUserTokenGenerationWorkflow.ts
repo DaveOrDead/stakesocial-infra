@@ -1,3 +1,5 @@
+import {hello} from "./hello";
+
 export const workflowSettings = {
   id: "addUserTokenClaim",
   trigger: "user:tokens_generation",
@@ -25,5 +27,4 @@ export default async function handlePreMFA({request, context}) {
     kinde.idToken.setCustomClaim("sport", res.json.data[1].name);
     kinde.accessToken.setCustomClaim("dave", "and_daniel_is_cool");
     return "testing add user tokens claim";
-  },
 };
