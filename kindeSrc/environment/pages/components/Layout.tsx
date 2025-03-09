@@ -4,7 +4,7 @@ import {
   getKindeRequiredJS,
   getKindeNonce,
   getKindeCSRF,
-  getSVGFavicon,
+  getSVGFaviconUrl,
   setKindeDesignerCustomProperties,
 } from "@kinde/infrastructure";
 
