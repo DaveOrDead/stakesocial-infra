@@ -4,7 +4,7 @@ export const workflowSettings = {
   id: "m2mTokenGeneration",
   name: "M2M custom claims",
   failurePolicy: {
-    action: "stop",
+    action: "continue",
   },
   trigger: "m2m:token_generation",
   bindings: {
