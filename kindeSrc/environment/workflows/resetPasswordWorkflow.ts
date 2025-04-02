@@ -21,13 +21,15 @@ export const workflowSettings = {
 export default async function handlePasswordReset(
   event: onNewPasswordProvidedEvent
 ) {
+  console.log("handlePasswordReset", event);
   try {
     const KINDE_WEBHOOK_URL =
       getEnvironmentVariable("KINDE_WEBHOOK_URL")?.value;
-
     if (!KINDE_WEBHOOK_URL) {
       throw Error("Endpoint not set");
     }
+
+    console.log("KINDE_WEBHOOK_URL", KINDE_WEBHOOK_URL);
 
     // The payload you want to send
     const payload = {
@@ -36,7 +38,7 @@ export default async function handlePasswordReset(
       newPasswordReason: event.context.auth.newPasswordReason,
     };
 
-    await secureFetch(KINDE_WEBHOOK_URL, {
+    const response = await secureFetch(KINDE_WEBHOOK_URL, {
       method: "POST",
       responseFormat: "json",
       headers: {
@@ -44,7 +46,11 @@ export default async function handlePasswordReset(
       },
       body: payload,
     });
+
+    console.log("response", response);
   } catch (error) {
     console.error("error", error);
   }
+
+  console.log("done");
 }
