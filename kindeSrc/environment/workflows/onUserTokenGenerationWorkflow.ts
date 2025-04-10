@@ -39,6 +39,7 @@ export default async function handleUserTokens(
     endpoint: `organizations/${event.context.organization.code}/properties`,
   });
   const { properties } = data;
+  console.log({ data });
 
   const propertiesToGetValuesFor = [
     "kp_org_utm_source",
