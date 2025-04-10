@@ -38,7 +38,7 @@ export default async function handleUserTokens(
   const { data } = await kindeAPI.get({
     endpoint: `organizations/${event.context.organization.code}/properties`,
   });
-  console.log({ data });
+  const { properties } = data;
 
   const propertiesToGetValuesFor = [
     "kp_org_utm_source",
