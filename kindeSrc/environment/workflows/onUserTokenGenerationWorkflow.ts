@@ -43,6 +43,10 @@ export default async function handleUserTokens(
     return;
   }
 
+  const IS_HUBSPOT_DEBUG_MODE = Boolean(
+    getEnvironmentVariable("IS_HUBSPOT_DEBUG_MODE")?.value
+  );
+
   // Call Kinde organization properties API
   const { data } = await kindeAPI.get({
     endpoint: `organizations/${event.context.organization.code}/properties`,
@@ -103,14 +107,18 @@ export default async function handleUserTokens(
     plan_interest: props.kinde_internal_initial_plan_interest,
   };
 
-  console.log({ hubspotProperties });
+  if (IS_HUBSPOT_DEBUG_MODE) {
+    console.log({ hubspotProperties });
+  }
 
   const HUBSPOT_TOKEN = getEnvironmentVariable("HUBSPOT_TOKEN")?.value;
 
   const IS_CALL_HUBSPOT = getEnvironmentVariable("IS_CALL_HUBSPOT")?.value;
 
   if (IS_CALL_HUBSPOT === "true") {
-    console.log("Calling Hubspot API");
+    if (IS_HUBSPOT_DEBUG_MODE) {
+      console.log("Calling Hubspot API");
+    }
     const { data: hubspotData } = await fetch(
       "https://api.hubapi.com/crm/v3/objects/contacts",
       {
@@ -124,8 +132,12 @@ export default async function handleUserTokens(
         },
       }
     );
-    console.log({ hubspotData });
+    if (IS_HUBSPOT_DEBUG_MODE) {
+      console.log({ hubspotData });
+    }
   } else {
-    console.log("Not calling Hubspot API");
+    console.log(
+      "Env variable 'IS_CALL_HUBSPOT' is false - not calling Hubspot API"
+    );
   }
 }
