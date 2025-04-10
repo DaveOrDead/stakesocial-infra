@@ -24,8 +24,6 @@ export const workflowSettings: WorkflowSettings = {
 export default async function handleUserTokens(
   event: onUserTokenGeneratedEvent
 ) {
-  const HUBSPOT_TOKEN = getEnvironmentVariable("HUBSPOT_TOKEN")?.value;
-
   // Get a token for Kinde management API
   const kindeAPI = await createKindeAPI(event);
 
@@ -34,7 +32,18 @@ export default async function handleUserTokens(
     endpoint: `organization?code=${event.context.organization.code}`,
   });
 
-  // Call Kinde organizations  API
+  const now = new Date();
+  const createdOn = new Date(org.created_on);
+  const fiveMinutesAgo = new Date(now.getTime() - 5 * 60000);
+
+  if (createdOn < fiveMinutesAgo) {
+    console.log(
+      "Organization was not created within last 5 minutes, skipping Hubspot sync"
+    );
+    return;
+  }
+
+  // Call Kinde organizations API
   const { data } = await kindeAPI.get({
     endpoint: `organizations/${event.context.organization.code}/properties`,
   });
@@ -73,6 +82,7 @@ export default async function handleUserTokens(
   const { data: user } = await kindeAPI.get({
     endpoint: `user?id=${event.context.user.id}`,
   });
+  console.log({ user });
 
   const hubspotProperties = {
     email: user.preferred_email,
@@ -98,6 +108,9 @@ export default async function handleUserTokens(
   };
 
   console.log({ hubspotProperties });
+
+  console.log({ auth: event.context.auth });
+  const HUBSPOT_TOKEN = getEnvironmentVariable("HUBSPOT_TOKEN")?.value;
 
   // POST TO HUBSPOT API
   // const { data: crmData } = await fetch(
