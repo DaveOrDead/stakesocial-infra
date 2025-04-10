@@ -38,7 +38,6 @@ export default async function handleUserTokens(
   const { data } = await kindeAPI.get({
     endpoint: `organizations/${event.context.organization.code}/properties`,
   });
-  const { properties } = data;
   console.log({ data });
 
   const propertiesToGetValuesFor = [
@@ -49,6 +48,9 @@ export default async function handleUserTokens(
     "kp_org_utm_term",
     "kp_org_gclid",
     "kp_org_fbclid",
+    "kinde_internal_data_region_id",
+    "kinde_internal_initial_plan_interest",
+    "kinde_internal_employee_count",
   ];
 
   function extractMatchingProperties(
@@ -89,12 +91,10 @@ export default async function handleUserTokens(
     utm_term: props.kp_org_utm_term,
     hs_google_click_id: props.kp_org_gclid,
     hs_facebook_click_id: props.kp_org_fbclid,
-    data_region: "au",
-    employee_count: 0,
-    headcount: 0,
-    plan_interest: "free",
-    state: "",
-    website_domain: "",
+    data_region: props.kinde_internal_data_region_id,
+    employee_count: props.kinde_internal_employee_count,
+    headcount: props.kinde_internal_employee_count,
+    plan_interest: props.kinde_internal_initial_plan_interest,
   };
 
   console.log({ hubspotProperties });
@@ -122,34 +122,4 @@ export default async function handleUserTokens(
   //     }),
   //   },
   // );
-
-  // Contact Email
-  // Company Name
-  // Customer Status - Signed up
-  // Data Region - 'au'
-
-  // Email automation via - Apollo
-  // Employee Count
-
-  // First Name
-  // Last Name
-
-  // Headcount
-
-  // Contact owner andre@kinde.com
-  // Kinde Domain
-
-  // Marketing Opt-in true
-  // Plan interest
-
-  // State/Region
-
-  // UTM Campaign
-  // UTM Content
-  // UTM Medium
-  // UTM Source
-  // UTM Term
-  // Website Domain
-
-  // POST TO ORG ADDING CONTACT ID
 }
