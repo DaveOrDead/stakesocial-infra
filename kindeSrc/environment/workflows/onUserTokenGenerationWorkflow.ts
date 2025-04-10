@@ -90,7 +90,7 @@ export default async function handleUserTokens(
     email_automation_via: "Apollo",
     firstname: user.first_name,
     lastname: user.last_name,
-    hubspot_owner_id: "andre@kinde.com",
+    hubspot_owner_id: getEnvironmentVariable("HUBSPOT_OWNER_EMAIL")?.value,
     kinde_domain: org.handle,
     marketing_opt_in: true,
     utm_campaign: props.kp_org_utm_campaign,
@@ -114,23 +114,21 @@ export default async function handleUserTokens(
 
   if (IS_CALL_HUBSPOT === "true") {
     console.log("Calling Hubspot API");
+    const { data: hubspotData } = await fetch(
+      "https://api.hubapi.com/crm/v3/objects/contacts",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${HUBSPOT_TOKEN}`,
+        },
+        method: "POST",
+        body: {
+          properties: hubspotProperties,
+        },
+      }
+    );
+    console.log({ hubspotData });
   } else {
     console.log("Not calling Hubspot API");
   }
-
-  //   POST TO HUBSPOT API
-  //   const { data: hubspotData } = await fetch(
-  //     "https://api.hubapi.com/crm/v3/objects/contacts",
-  //     {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${HUBSPOT_TOKEN}`,
-  //       },
-  //       method: "POST",
-  //       body: {
-  //         properties: hubspotProperties,
-  //       },
-  //     }
-  //   );
-  //   console.log({ hubspotData });
 }
