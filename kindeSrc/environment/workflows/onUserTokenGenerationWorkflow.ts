@@ -42,7 +42,7 @@ export default async function handleUserTokens(
 
   const { user } = usr;
 
-  console.log({ organization, user });
+  console.log({ org, usr });
 
   // POST TO HUBSPOT API
   // const { data: crmData } = await fetch(
