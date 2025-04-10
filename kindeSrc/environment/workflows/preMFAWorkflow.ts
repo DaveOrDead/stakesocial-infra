@@ -1,8 +1,8 @@
+import { onUserPreMFA } from "@kinde/infrastructure";
 import {
   createKindeAPI,
   fetch,
   getEnvironmentVariable,
-  onUserTokenGeneratedEvent,
   WorkflowSettings,
   WorkflowTrigger,
 } from "@kinde/infrastructure";
@@ -16,14 +16,12 @@ export const workflowSettings: WorkflowSettings = {
   failurePolicy: {
     action: "continue",
   },
-  id: "userTokenGeneration",
-  name: "Access token custom claims",
-  trigger: WorkflowTrigger.UserTokenGeneration,
+  id: "hubspotSync",
+  name: "HubSpot sync",
+  trigger: WorkflowTrigger.UserPreMFA,
 };
 
-export default async function handleUserTokens(
-  event: onUserTokenGeneratedEvent
-) {
+export default async function handleUserTokens(event: onUserPreMFA) {
   // Get a token for Kinde management API
   const kindeAPI = await createKindeAPI(event);
 
@@ -68,15 +66,12 @@ export default async function handleUserTokens(
   function extractMatchingProperties(
     properties: Array<{ key: string; value: string }>
   ) {
-    return properties.reduce(
-      (acc, prop) => {
-        if (propertiesToGetValuesFor.includes(prop.key)) {
-          acc[prop.key] = prop.value;
-        }
-        return acc;
-      },
-      {} as Record<string, string>
-    );
+    return properties.reduce((acc, prop) => {
+      if (propertiesToGetValuesFor.includes(prop.key)) {
+        acc[prop.key] = prop.value;
+      }
+      return acc;
+    }, {} as Record<string, string>);
   }
 
   const props = extractMatchingProperties(properties);
