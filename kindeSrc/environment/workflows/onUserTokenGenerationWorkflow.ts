@@ -112,7 +112,7 @@ export default async function handleUserTokens(
 
   const IS_CALL_HUBSPOT = getEnvironmentVariable("IS_CALL_HUBSPOT")?.value;
 
-  if (IS_CALL_HUBSPOT) {
+  if (IS_CALL_HUBSPOT === "true") {
     console.log("Calling Hubspot API");
   } else {
     console.log("Not calling Hubspot API");
