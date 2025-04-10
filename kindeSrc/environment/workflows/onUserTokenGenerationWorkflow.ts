@@ -43,7 +43,7 @@ export default async function handleUserTokens(
     return;
   }
 
-  // Call Kinde organizations API
+  // Call Kinde organization properties API
   const { data } = await kindeAPI.get({
     endpoint: `organizations/${event.context.organization.code}/properties`,
   });
@@ -82,7 +82,6 @@ export default async function handleUserTokens(
   const { data: user } = await kindeAPI.get({
     endpoint: `user?id=${event.context.user.id}`,
   });
-  console.log({ user });
 
   const hubspotProperties = {
     email: user.preferred_email,
@@ -109,30 +108,29 @@ export default async function handleUserTokens(
 
   console.log({ hubspotProperties });
 
-  console.log({ auth: event.context.auth });
   const HUBSPOT_TOKEN = getEnvironmentVariable("HUBSPOT_TOKEN")?.value;
 
-  // POST TO HUBSPOT API
-  // const { data: crmData } = await fetch(
-  //   'https://api.hubapi.com/crm/v3/objects/contacts',
-  //   {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${HUBSPOT_TOKEN}`,
-  //     },
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       properties: {
-  //         email: event.user.email,
-  //         firstname: event.user.firstName,
-  //         lastname: event.user.lastName,
-  //         hs_context: JSON.stringify(event),
-  //         hs_analytics_source: "api",
-  //         hs_analytics_source_data_1: event.user.email,
-  //         hs_analytics_source_data_2: event.user.firstName,
-  //         hs_analytics_source_data_3: event.user.lastName,
+  const IS_CALL_HUBSPOT = getEnvironmentVariable("IS_CALL_HUBSPOT")?.value;
+
+  if (IS_CALL_HUBSPOT) {
+    console.log("Calling Hubspot API");
+  } else {
+    console.log("Not calling Hubspot API");
+  }
+
+  //   POST TO HUBSPOT API
+  //   const { data: hubspotData } = await fetch(
+  //     "https://api.hubapi.com/crm/v3/objects/contacts",
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${HUBSPOT_TOKEN}`,
   //       },
-  //     }),
-  //   },
-  // );
+  //       method: "POST",
+  //       body: {
+  //         properties: hubspotProperties,
+  //       },
+  //     }
+  //   );
+  //   console.log({ hubspotData });
 }
