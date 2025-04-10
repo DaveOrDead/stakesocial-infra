@@ -33,16 +33,70 @@ export default async function handleUserTokens(
   const { data: org } = await kindeAPI.get({
     endpoint: `organization?code=${event.context.organization.code}`,
   });
-  const { organization } = org;
+
+  // Call Kinde organizations  API
+  const { data } = await kindeAPI.get({
+    endpoint: `organizations/${event.context.organization.code}/properties`,
+  });
+  const { properties } = data;
+
+  const propertiesToGetValuesFor = [
+    "kp_org_utm_source",
+    "kp_org_utm_medium",
+    "kp_org_utm_campaign",
+    "kp_org_utm_content",
+    "kp_org_utm_term",
+    "kp_org_gclid",
+    "kp_org_fbclid",
+  ];
+
+  function extractMatchingProperties(
+    properties: Array<{ key: string; value: string }>
+  ) {
+    return properties.reduce(
+      (acc, prop) => {
+        if (propertiesToGetValuesFor.includes(prop.key)) {
+          acc[prop.key] = prop.value;
+        }
+        return acc;
+      },
+      {} as Record<string, string>
+    );
+  }
+
+  const props = extractMatchingProperties(properties);
 
   // call user api
-  const { data: usr } = await kindeAPI.get({
+  const { data: user } = await kindeAPI.get({
     endpoint: `user?id=${event.context.user.id}`,
   });
 
-  const { user } = usr;
+  const hubspotProperties = {
+    email: user.preferred_email,
+    company: org.name,
+    customer_status: "Signed up",
+    email_automation_via: "Apollo",
+    firstname: user.first_name,
+    lastname: user.last_name,
+    hubspot_owner_id: "andre@kinde.com",
+    kinde_domain: org.handle,
+    marketing_opt_in: true,
+    utm_campaign: props.kp_org_utm_campaign,
+    utm_content: props.kp_org_utm_content,
+    utm_medium: props.kp_org_utm_medium,
+    utm_source: props.kp_org_utm_source,
+    utm_term: props.kp_org_utm_term,
+    hs_google_click_id: props.kp_org_gclid,
+    hs_facebook_click_id: props.kp_org_fbclid,
+    data_region: "au",
+    employee_count: 0,
+    headcount: 0,
+    plan_interest: "free",
+    state: "",
+    website_domain: "",
+  };
 
-  console.log({ org, usr });
+  console.log({ hubspotProperties });
 
   // POST TO HUBSPOT API
   // const { data: crmData } = await fetch(
