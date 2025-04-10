@@ -59,7 +59,6 @@ export default async function handleUserTokens(
     "kp_org_fbclid",
     "kinde_internal_data_region_id",
     "kinde_internal_initial_plan_interest",
-    "kinde_internal_employee_count",
   ];
 
   function extractMatchingProperties(
@@ -90,7 +89,7 @@ export default async function handleUserTokens(
     email_automation_via: "Apollo",
     firstname: user.first_name,
     lastname: user.last_name,
-    hubspot_owner_id: getEnvironmentVariable("HUBSPOT_OWNER_EMAIL")?.value,
+    hubspot_owner_id: getEnvironmentVariable("HUBSPOT_CONTACT_OWNER_ID")?.value,
     kinde_domain: org.handle,
     marketing_opt_in: true,
     utm_campaign: props.kp_org_utm_campaign,
@@ -101,8 +100,6 @@ export default async function handleUserTokens(
     hs_google_click_id: props.kp_org_gclid,
     hs_facebook_click_id: props.kp_org_fbclid,
     data_region: props.kinde_internal_data_region_id,
-    employee_count: props.kinde_internal_employee_count,
-    headcount: props.kinde_internal_employee_count,
     plan_interest: props.kinde_internal_initial_plan_interest,
   };
 
