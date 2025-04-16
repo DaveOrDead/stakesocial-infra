@@ -59,7 +59,7 @@ export default async function handleUserTokens(event: onUserPreMFA) {
     "kp_org_utm_term",
     "kp_org_gclid",
     "kp_org_fbclid",
-    "kinde_internal_data_region_id",
+    "kinde_internal_assigned_region",
     "kinde_internal_initial_plan_interest",
   ];
 
@@ -98,7 +98,7 @@ export default async function handleUserTokens(event: onUserPreMFA) {
     utm_term: props.kp_org_utm_term,
     hs_google_click_id: props.kp_org_gclid,
     hs_facebook_click_id: props.kp_org_fbclid,
-    data_region: props.kinde_internal_data_region_id,
+    data_region: props.kinde_internal_assigned_region,
     plan_interest: props.kinde_internal_initial_plan_interest,
   };
 
