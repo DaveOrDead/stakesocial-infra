@@ -24,7 +24,7 @@ export const workflowSettings: WorkflowSettings = {
 export default async function handleUserTokens(event: onUserPreMFA) {
   // Get a token for Kinde management API
   const kindeAPI = await createKindeAPI(event);
-
+  console.log("event", event);
   // Call Kinde organizations  API
   const { data: org } = await kindeAPI.get({
     endpoint: `organization?code=${event.context.organization.code}`,
