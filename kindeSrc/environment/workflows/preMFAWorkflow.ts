@@ -17,7 +17,7 @@ export const workflowSettings: WorkflowSettings = {
     action: "continue",
   },
   id: "hubspotSync",
-  name: "HubSpot sync - pre MFA",
+  name: "HubSpot sync - pre MFA s",
   trigger: WorkflowTrigger.UserPreMFA,
 };
 
