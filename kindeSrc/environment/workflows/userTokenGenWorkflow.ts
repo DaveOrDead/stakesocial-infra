@@ -1,10 +1,10 @@
-import { onUserPreMFA } from "@kinde/infrastructure";
 import {
   createKindeAPI,
   fetch,
   getEnvironmentVariable,
   WorkflowSettings,
   WorkflowTrigger,
+  onUserTokenGeneratedEvent,
 } from "@kinde/infrastructure";
 
 export const workflowSettings: WorkflowSettings = {
@@ -16,12 +16,14 @@ export const workflowSettings: WorkflowSettings = {
   failurePolicy: {
     action: "continue",
   },
-  id: "hubspotSync",
-  name: "HubSpot sync - pre MFA",
-  trigger: WorkflowTrigger.UserPreMFA,
+  id: "hubspotSyncUserToken",
+  name: "HubSpot sync - user token",
+  trigger: WorkflowTrigger.UserTokenGeneration,
 };
 
-export default async function handleUserTokens(event: onUserPreMFA) {
+export default async function handleUserTokens(
+  event: onUserTokenGeneratedEvent
+) {
   // Get a token for Kinde management API
   const kindeAPI = await createKindeAPI(event);
   console.log("event", event);
