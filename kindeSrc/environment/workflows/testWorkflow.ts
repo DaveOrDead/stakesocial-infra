@@ -1,11 +1,14 @@
-import { KindeWorkflow } from "@kinde-oss/kinde-sdk";
-
 export const workflowSettings = {
-  id: "onTokenGeneration",
-  trigger: "user:tokens_generation",
+  id: "planSelection",
+  name: "Plan selection",
+  failurePolicy: {
+    action: "continue",
+  },
+  trigger: "user:plan_selection",
 };
 
-export default async function Workflow({ request, context }) {
-  console.log("Hello world");
-  KindeWorkflow();
+export default async function handlePasswordReset(event) {
+  console.log("planSelection", event);
+
+  console.log("done");
 }
