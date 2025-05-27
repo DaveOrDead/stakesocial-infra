@@ -12,6 +12,6 @@ export const workflowSettings = {
 
 export default async function handlePasswordReset(event) {
   console.log("planSelection", event);
-  kinde.planSelection.denyAccess("Nah mate");
+  kinde.planSelection.denyAccess("Nah mate", ["Change this", "Change that"]);
   console.log("done");
 }
