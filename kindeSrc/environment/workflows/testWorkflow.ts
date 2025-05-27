@@ -10,8 +10,12 @@ export const workflowSettings = {
   },
 };
 
-export default async function handlePasswordReset(event) {
+export default async function Workflow(event) {
   console.log("planSelection", event);
-  kinde.planSelection.denyAccess("Nah mate", ["Change this", "Change that"]);
-  console.log("done");
+
+  //    some code here to check if user can perform the plan change
+  kinde.planSelection.denyAccess(
+    "To move from Scale to Pro you first need to:",
+    ["Turn off your MFA workflow", "Remove any advanced orgs"]
+  );
 }
