@@ -5,9 +5,12 @@ export const workflowSettings = {
     action: "continue",
   },
   trigger: "user:oauth2_token_exchange",
-  bindings: {},
+  bindings: {
+    "kinde.accessToken": {},
+  },
 };
 
 export default async function Workflow(event) {
   console.log("event", event);
+  kinde.accessToken.setCustomClaim("random", event.context.oauth2.expiry);
 }
