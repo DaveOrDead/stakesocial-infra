@@ -6,7 +6,7 @@ export const workflowSettings = {
   },
   trigger: "user:plan_selection",
   bindings: {
-    "kinde.planSelection": {},
+    "kinde.plan": {},
   },
 };
 
@@ -14,8 +14,8 @@ export default async function Workflow(event) {
   console.log("planSelection", event);
 
   //    some code here to check if user can perform the plan change
-  kinde.planSelection.denyAccess(
-    "To move from Scale to Pro you first need to:",
-    ["Turn off your MFA workflow", "Remove any advanced orgs"]
-  );
+  kinde.plan.denySelection("To move from Scale to Pro you first need to:", [
+    "Turn off your MFA workflow",
+    "Remove any advanced orgs",
+  ]);
 }
