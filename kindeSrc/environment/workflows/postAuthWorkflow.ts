@@ -1,13 +1,13 @@
 export const workflowSettings = {
-  id: "preUserRegistrationWF",
-  name: "Pre User Registration Workflow",
+  id: "postAuthWF",
+  name: "Post-Auth Workflow",
   failurePolicy: {
     action: "continue",
   },
-  trigger: "user:pre_registration",
+  trigger: "user:post_authentication",
   bindings: {},
 };
 
 export default async function Workflow(event) {
-  console.log("preauth", event);
+  console.log("postauth", event);
 }
