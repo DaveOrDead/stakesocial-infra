@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@kinde/infrastructure": "^0.4.0"
+    "@kinde/infrastructure": "next"
   }
 }
