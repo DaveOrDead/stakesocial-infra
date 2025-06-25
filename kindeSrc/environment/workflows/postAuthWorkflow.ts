@@ -17,6 +17,7 @@ export const workflowSettings: WorkflowSettings = {
   bindings: {
     "kinde.env": {},
     "kinde.fetch": {},
+    url: {},
   },
 };
 
