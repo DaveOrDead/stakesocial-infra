@@ -37,7 +37,7 @@ export default async function handleUserTokens(
   });
 
   const { organizations } = user;
-
+  console.log("User organizations:", organizations);
   if (organizations && organizations.length > 0) {
     const organisationWithLogo =
       (await Promise.all(
