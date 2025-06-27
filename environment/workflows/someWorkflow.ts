@@ -63,6 +63,8 @@ export default async function handleUserTokens(
         })
       )) || [];
 
+    console.log({ organisationWithLogo });
+
     const idToken = idTokenCustomClaims<{
       organizations: typeof organisationWithLogo;
     }>();
