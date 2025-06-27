@@ -1,14 +1,9 @@
 {
-  "name": "stakesocial-infra",
+  "name": "@optible/kinde-workflow",
   "version": "1.0.0",
-  "description": "Stake custom UI on Kinde",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "main": "index.js",
+  "license": "MIT",
   "dependencies": {
-    "@kinde/infrastructure": "next"
+    "@kinde/infrastructure": "^0.4.0"
   }
 }
