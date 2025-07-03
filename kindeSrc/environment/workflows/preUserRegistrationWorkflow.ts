@@ -13,7 +13,7 @@ export const workflowSettings: WorkflowSettings = {
   failurePolicy: {
     action: "stop",
   },
-  trigger: WorkflowTrigger.UserPreRegistration,
+  trigger: "user:pre_registration",
   bindings: {
     "kinde.env": {},
   },
