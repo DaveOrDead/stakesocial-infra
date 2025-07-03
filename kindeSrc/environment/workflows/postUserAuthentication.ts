@@ -13,7 +13,7 @@ export const workflowSettings: WorkflowSettings = {
   failurePolicy: {
     action: "stop",
   },
-  trigger: WorkflowTrigger.POST_AUTHENTICATION,
+  trigger: WorkflowTrigger.PostAuthentication
   bindings: {},
 };
 
