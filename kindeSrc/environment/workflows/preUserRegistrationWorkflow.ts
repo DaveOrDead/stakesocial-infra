@@ -36,6 +36,12 @@ export const workflowSettings: WorkflowSettings = {
 export default async function handlePreRegistration(event: onUserPreRegistrationEvent) {
   console.log("handlePreRegistration", event);
 
+  // Check if user email exists in the event
+  if (!event.context.user.email) {
+    console.log("No user email found in pre-registration event, allowing registration");
+    return;
+  }
+
   const disposableEmailDomains = getEnvironmentVariable("DISPOSABLE_EMAIL_DOMAINS")?.value;
 
   // If no disposable email domains are configured, allow registration
