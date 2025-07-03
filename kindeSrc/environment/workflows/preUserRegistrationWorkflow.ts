@@ -16,6 +16,7 @@ export const workflowSettings: WorkflowSettings = {
   trigger: "user:pre_registration",
   bindings: {
     "kinde.env": {},
+    "kinde.auth": {},
   },
 };
 
