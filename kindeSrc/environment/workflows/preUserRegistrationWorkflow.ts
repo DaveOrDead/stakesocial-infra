@@ -34,6 +34,7 @@ export const workflowSettings: WorkflowSettings = {
 
 // The workflow code to be executed when the event is triggered
 export default async function handlePreRegistration(event: onUserPreRegistrationEvent) {
+    console.log("handlePreRegistration", event);
   const disposableEmailDomains = getEnvironmentVariable("DISPOSABLE_EMAIL_DOMAINS")?.value;
   const disposableEmailDomainsArray = disposableEmailDomains?.split(",");
 
