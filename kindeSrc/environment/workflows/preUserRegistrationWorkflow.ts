@@ -34,11 +34,24 @@ export const workflowSettings: WorkflowSettings = {
 
 // The workflow code to be executed when the event is triggered
 export default async function handlePreRegistration(event: onUserPreRegistrationEvent) {
-    console.log("handlePreRegistration", event);
-  const disposableEmailDomains = getEnvironmentVariable("DISPOSABLE_EMAIL_DOMAINS")?.value;
-  const disposableEmailDomainsArray = disposableEmailDomains?.split(",");
+  console.log("handlePreRegistration", event);
 
-  if (disposableEmailDomainsArray?.includes(event.context.user.email.split("@")[1])) {
+  const disposableEmailDomains = getEnvironmentVariable("DISPOSABLE_EMAIL_DOMAINS")?.value;
+
+  // If no disposable email domains are configured, allow registration
+  if (!disposableEmailDomains) {
+    console.log("No disposable email domains configured, allowing registration");
+    return;
+  }
+
+  const disposableEmailDomainsArray = disposableEmailDomains.split(",").map(domain => domain.trim());
+
+  const userEmailDomain = event.context.user.email.split("@")[1];
+
+  if (disposableEmailDomainsArray.includes(userEmailDomain)) {
+    console.log(`Blocking registration for disposable email domain: ${userEmailDomain}`);
     denyAccess("Disposable email domain detected");
   }
+
+  console.log(`Allowing registration for email domain: ${userEmailDomain}`);
 }
