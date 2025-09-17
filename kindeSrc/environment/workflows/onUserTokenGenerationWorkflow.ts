@@ -1,4 +1,3 @@
-import {hello} from "./hello";
 
 export const workflowSettings = {
   id: "addUserTokenClaim",
