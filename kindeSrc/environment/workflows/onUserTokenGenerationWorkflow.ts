@@ -20,8 +20,8 @@ export default async function handlePreMFA({request, context}) {
     //   method: "GET",
     //   responseFormat: "json",
     // });
-  console.log('hello world');
-  const policy = 'non_persistent';
+  console.log('hello world persistent');
+  const policy = 'non-persistent';
 kinde.ssoSession.setPolicy(policy);
   console.log('running');
     // console.log("stakeRes", res);
